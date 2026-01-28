@@ -1,0 +1,134 @@
+.adminContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #0f0f1e;
+  color: white;
+  min-height: 100vh;
+}
+
+.adminContainer h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #00d4ff;
+}
+
+.adminSection {
+  background-color: #1e1e2e;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.adminSection h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #00d4ff;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.inputGroup input {
+  flex: 1;
+  padding: 10px 15px;
+  background-color: #2a2a3e;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.inputGroup button {
+  padding: 10px 20px;
+  background-color: #00d4ff;
+  color: #0f0f1e;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.inputGroup button:hover {
+  background-color: #00f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+}
+
+.adminTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.adminTable th {
+  background-color: #2a2a3e;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+  color: #00d4ff;
+  font-weight: 600;
+}
+
+.adminTable td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.adminTable tr:hover {
+  background-color: rgba(0, 212, 255, 0.05);
+}
+
+.adminTable input {
+  width: 100%;
+  padding: 8px;
+  background-color: #2a2a3e;
+  border: 1px solid #00d4ff;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.adminTable input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.adminTable button {
+  margin-right: 8px;
+  padding: 6px 12px;
+  background-color: #00d4ff;
+  color: #0f0f1e;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 12px;
+}
+
+.adminTable button:hover {
+  background-color: #00f0ff;
+  transform: translateY(-1px);
+}
+
+.adminTable button:last-child {
+  background-color: #ff4757;
+  color: white;
+}
+
+.adminTable button:last-child:hover {
+  background-color: #ff6b7b;
+}

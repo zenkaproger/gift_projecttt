@@ -1,0 +1,73 @@
+.root{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.formTitle{
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.managerForm{
+  display: flex;
+  flex-direction: column;
+  width: 720px;
+  top: 40px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #ffffff;
+  padding: 20px;
+  margin-right: 110px;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.managerList{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  list-style-type: none;
+  padding: 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.managerList ul {
+  list-style: none;
+  padding: 0;
+}
+
+.giftForm{
+  display: flex;
+  flex-direction: column;
+  width: 720px;
+  top: 40px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: #ffffff;
+  padding: 20px;
+  margin-right: 110px;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.giftList{
+  display: flex;
+    flex-direction: column;
+    text-align: center;
+  list-style-type: none;
+  padding: 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+}
+.giftList ul {
+  list-style: none;
+  padding: 0;
+}
+.giftList th{
+  padding-bottom: 20px;
+}
