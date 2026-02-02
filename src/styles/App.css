@@ -1,29 +1,42 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
 .root{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 110px;
+  padding: 60px;
+  background: linear-gradient(135deg, #4a4a79 0%, #2a2a3e 100%);
+
+}
+.leftColumn,
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  width: 720px;
 }
 .formTitle{
   text-align: center;
   color: white;
   font-size: 32px;
   font-weight: 700;
-  margin-bottom: 10px;
+  
 }
 .managerForm{
   display: flex;
   flex-direction: column;
-  width: 720px;
+  width: 620px;
   top: 40px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    color: #ffffff;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: #ffffff;
   padding: 20px;
+  padding-bottom: 40px;
   margin-right: 110px;
   border-radius: 24px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.1);
 }
 .managerList{
     display: flex;
@@ -32,7 +45,7 @@
   list-style-type: none;
   padding: 0;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -44,16 +57,37 @@
 .giftForm{
   display: flex;
   flex-direction: column;
-  width: 720px;
-  top: 40px;
+  width: 620px;
+  max-height: 700px;
+  top: 10px;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
   color: #ffffff;
-  padding: 20px;
+  padding: 10px;
   margin-right: 110px;
   border-radius: 14px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.4);
   border: 1px solid rgba(255,255,255,0.1);
+  overflow: visible;
 }
+.divider {
+  border: 2px;
+  height: 5px;
+  width: 100%;
+  margin-bottom: 18px;
+  background: linear-gradient(
+    135deg,
+    #FFD700,
+    #FFED4E,
+    #B8860B
+  );
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
 .giftList{
   display: flex;
     flex-direction: column;
@@ -61,7 +95,7 @@
   list-style-type: none;
   padding: 0;
   color: white;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
 }
 .giftList ul {
@@ -69,5 +103,24 @@
   padding: 0;
 }
 .giftList th{
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+}
+.rules{
+  display: flex;
+  margin-top: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 620px;
+  height: 100px;
+  margin-right: 110px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+.rules p{
+  margin: 0;
+  font-size: 18px;
+  color: white;
+  line-height: 1.6;
+  font-weight: 600;
 }

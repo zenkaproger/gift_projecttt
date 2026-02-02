@@ -6,6 +6,8 @@ const Admin = ({ managers, setManagers, gifts, setGifts }) => {
   const [giftName, setGiftName] = useState('')
   const [editingManager, setEditingManager] = useState(null)
   const [editingGift, setEditingGift] = useState(null)
+  const [addPoint, setAddPoint] = useState('')
+  const [selectedManagerId, setSelectedManagerId] = useState('')
 
   // Функции для менеджеров
   const addManager = () => {
@@ -50,6 +52,17 @@ const Admin = ({ managers, setManagers, gifts, setGifts }) => {
     setEditingGift(null)
   }
 
+  const addPointsToManager = () => {
+    if(!selectedManagerId || !addPoint) return;
+    setManagers(
+        managers.map(manager => manager.id === Number(selectedManagerId)
+        ? { ...manager, points: manager.points + Number(addPoint) }
+        : manager
+    )
+    )
+    setAddPoint('')
+  }
+
   return (
     <div className="adminContainer">
       <h1>Админ-панель</h1>
@@ -73,6 +86,7 @@ const Admin = ({ managers, setManagers, gifts, setGifts }) => {
             <tr>
               <th>#</th>
               <th>Ім'я</th>
+              <th>Очки</th>
               <th>Дії</th>
             </tr>
           </thead>
@@ -93,6 +107,7 @@ const Admin = ({ managers, setManagers, gifts, setGifts }) => {
                     manager.name
                   )}
                 </td>
+                <td>{manager.points}</td>
                 <td>
                   <button onClick={() => setEditingManager(manager.id)}>Редагувати</button>
                   <button onClick={() => deleteManager(manager.id)}>Видалити</button>
@@ -102,6 +117,32 @@ const Admin = ({ managers, setManagers, gifts, setGifts }) => {
           </tbody>
         </table>
       </div>
+
+      <div className="inputGroup">
+  <select
+    value={selectedManagerId}
+    onChange={(e) => setSelectedManagerId(e.target.value)}
+  >
+    <option value="">Оберіть менеджера</option>
+    {managers.map(manager => (
+      <option key={manager.id} value={manager.id}>
+        {manager.name}
+      </option>
+    ))}
+  </select>
+
+  <input
+    type="number"
+    placeholder="Кількість очок"
+    value={addPoint}
+    onChange={(e) => setAddPoint(e.target.value)}
+  />
+
+  <button onClick={addPointsToManager}>
+    Додати очки
+  </button>
+</div>
+
 
       <div className="adminSection">
         <h2>Управление подарками</h2>
