@@ -7,6 +7,7 @@ const Admin = ({ managers, setManagers, gifts, setGifts }) => {
   const [editingManager, setEditingManager] = useState(null)
   const [editingGift, setEditingGift] = useState(null)
   const [addPoint, setAddPoint] = useState('')
+  const [removePoint, setRemovePoint] = useState('')
   const [selectedManagerId, setSelectedManagerId] = useState('')
 
   // Функции для менеджеров
@@ -61,6 +62,17 @@ const Admin = ({ managers, setManagers, gifts, setGifts }) => {
     )
     )
     setAddPoint('')
+  }
+
+  const removePointsFromManager = () => {
+    if(!selectedManagerId || !removePoint) return;
+    setManagers(
+        managers.map(manager => manager.id === Number(selectedManagerId)
+        ? { ...manager, points: Math.max(0, manager.points - Number(removePoint)) }
+        : manager
+    )
+    )
+    setRemovePoint('')
   }
 
   return (
@@ -140,6 +152,31 @@ const Admin = ({ managers, setManagers, gifts, setGifts }) => {
 
   <button onClick={addPointsToManager}>
     Додати очки
+  </button>
+</div>
+
+<div className="inputGroup">
+  <select
+    value={selectedManagerId}
+    onChange={(e) => setSelectedManagerId(e.target.value)}
+  >
+    <option value="">Оберіть менеджера</option>
+    {managers.map(manager => (
+      <option key={manager.id} value={manager.id}>
+        {manager.name}
+      </option>
+    ))}
+  </select>
+
+  <input
+    type="number"
+    placeholder="Кількість очок для видалення"
+    value={removePoint}
+    onChange={(e) => setRemovePoint(e.target.value)}
+  />
+
+  <button onClick={removePointsFromManager}>
+    Видалити очки
   </button>
 </div>
 
