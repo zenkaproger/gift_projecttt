@@ -55,24 +55,42 @@ const Admin = ({ managers, setManagers, gifts, setGifts }) => {
 
   const addPointsToManager = () => {
     if(!selectedManagerId || !addPoint) return;
-    setManagers(
+    fetch('http://localhost:3001/managers/add-points', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: Number(selectedManagerId), points: Number(addPoint) })
+    })
+    .then(res => res.json())
+    .then(() => {
+      setManagers(
         managers.map(manager => manager.id === Number(selectedManagerId)
         ? { ...manager, points: manager.points + Number(addPoint) }
         : manager
-    )
-    )
-    setAddPoint('')
+      )
+      )
+      setAddPoint('')
+    })
+    .catch(err => console.error('Error adding points:', err))
   }
 
   const removePointsFromManager = () => {
     if(!selectedManagerId || !removePoint) return;
-    setManagers(
+    fetch('http://localhost:3001/managers/add-points', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: Number(selectedManagerId), points: -Number(removePoint) })
+    })
+    .then(res => res.json())
+    .then(() => {
+      setManagers(
         managers.map(manager => manager.id === Number(selectedManagerId)
         ? { ...manager, points: Math.max(0, manager.points - Number(removePoint)) }
         : manager
-    )
-    )
-    setRemovePoint('')
+      )
+      )
+      setRemovePoint('')
+    })
+    .catch(err => console.error('Error removing points:', err))
   }
 
   return (
