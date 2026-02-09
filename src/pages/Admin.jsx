@@ -18,18 +18,43 @@ const Admin = ({ managers, setManagers, gifts, setGifts }) => {
         name: managerName,
         points: 0
       }
-      setManagers([...managers, newManager])
-      setManagerName('')
+      fetch('http://localhost:3001/managers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newManager)
+      })
+      .then(res => res.json())
+      .then(() => {
+        setManagers([...managers, newManager])
+        setManagerName('')
+      })
+      .catch(err => console.error('Error adding manager:', err))
     }
   }
 
   const deleteManager = (id) => {
-    setManagers(managers.filter(m => m.id !== id))
+    fetch(`http://localhost:3001/managers/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(() => {
+      setManagers(managers.filter(m => m.id !== id))
+    })
+    .catch(err => console.error('Error deleting manager:', err))
   }
 
   const updateManager = (id, newName) => {
-    setManagers(managers.map(m => m.id === id ? { ...m, name: newName } : m))
-    setEditingManager(null)
+    fetch(`http://localhost:3001/managers/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: newName })
+    })
+    .then(res => res.json())
+    .then(() => {
+      setManagers(managers.map(m => m.id === id ? { ...m, name: newName } : m))
+      setEditingManager(null)
+    })
+    .catch(err => console.error('Error updating manager:', err))
   }
 
   // Функции для подарков

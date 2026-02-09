@@ -1,5 +1,11 @@
 const sqlite3 = require('sqlite3').verbose()
-const db = new sqlite3.Database('./managers.db')
+const db = new sqlite3.Database('./managers.db', (err) => {
+  if (err) {
+    console.error('Database connection error:', err)
+  } else {
+    console.log('✅ Database connected')
+  }
+})
 
 db.serialize(() => {
   db.run(`
@@ -111,6 +117,15 @@ db.serialize(() => {
 
   stmtGifts.finalize()
 
+})
+
+// Убедимся, что БД готова перед использованием
+let dbReady = false
+db.serialize(() => {
+  db.run('SELECT 1', () => {
+    dbReady = true
+    console.log('✅ Database ready')
+  })
 })
 
 module.exports = db
